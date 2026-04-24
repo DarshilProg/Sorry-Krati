@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Krati 💜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #6d28d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Purple heart */
+.heart-main {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Text */
+#text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    min-height: 160px;
+    white-space: pre-line;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #8b5cf6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #7c3aed;
+    transform: scale(1.03);
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 14px;
+    opacity: 0.6;
+    animation: float 7s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="card">
+
+        <div class="heart-main">💜</div>
+
+        <h1>Krati... I’m Really Sorry 💜</h1>
+
+        <div id="text"></div>
+
+        <button onclick="forgive()">Forgive Me? 🥺</button>
+
+    </div>
+</div>
+
+<script>
+const message = `Krati...
+
+I know I hurt you, and I feel really bad about it.
+
+Sorry... I won’t do this again.
+Ab nhi jaunga uncle ke paas...
+
+I didn’t realize how much it would affect you.
+But now I understand... and I truly regret it.
+
+You matter to me more than anything.
+Please don’t stay upset with me... 🥺💜`;
+
+let i = 0;
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+
+function forgive() {
+    window.open("https://wa.me/?text=Please forgive me Krati 💜", "_blank");
+}
+
+/* floating hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💜";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}, 800);
+</script>
+
+</body>
+</html>
